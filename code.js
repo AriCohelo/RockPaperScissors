@@ -2,12 +2,8 @@ const mano = ['rock', 'paper', 'scissors']
 function getComputerChoice() {
     const choice = Math.floor(Math.random() * mano.length)
     return mano[choice]
-
+    
 }
-
-let humanInput = prompt('What\'s Your Choice?')
-let humanChoice = humanInput.toLowerCase()
-console.log(humanChoice);
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'scissors' && computerSelection === 'scissors') {
@@ -38,32 +34,55 @@ function playRound(playerSelection, computerSelection) {
         return 'You loose! Rock beats Scissors';
     }
 }
-
-
-function game() {
-    let resultHuman = 0;
-    let resultMachine = 0;
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = 'paper';
-        const computerSelection = getComputerChoice();
-        let prevRes = playRound(playerSelection, computerSelection);
-
-        if (prevRes === 'You Win! Paper beats Rock' || prevRes === 'You Win! Rock beats Scissors' || prevRes === 'You Win! Scissors beats Paper') {
-            resultHuman++;
-        }
-        else if (prevRes === 'You loose! Scissors beats paper' || prevRes === 'You loose! Paper beats Rock' || prevRes === 'You loose! Rock beats Paper') {
-            resultMachine++;
-        }
-        else { }
-            console.log(prevRes)
-    }
-
-    if (resultHuman > resultMachine) {
-        return 'YOU WIN!!'
-    }
-    else if (resultMachine > resultHuman) {
-        return 'YOU LOOSE!!'
-    }
-    else return 'IT\'S A TIE'
+function humanChoiceRock () {
+    console.log(playRound('rock', getComputerChoice()))
 }
-console.log(game());
+let rockBtn = document.getElementById('rockBtn');
+rockBtn.addEventListener('click', humanChoiceRock);
+
+function humanChoicePaper () {
+    console.log(playRound('paper', getComputerChoice()))
+}
+let paprBtn = document.getElementById('paprBtn');
+paprBtn.addEventListener('click', humanChoicePaper);
+
+function humanChoiceScissors () {
+    console.log(playRound('scissors', getComputerChoice()))
+}
+let scissBtn = document.getElementById('scissBtn');
+scissBtn.addEventListener('click', humanChoiceScissors);
+
+
+
+
+
+
+
+
+// function game() {    
+//     let resultHuman = 0;
+//     let resultMachine = 0;
+//     for (let i = 0; i < 5; i++) {
+//         const playerSelection = 'paper';
+//         const computerSelection = getComputerChoice();
+//         let prevRes = playRound(playerSelection, computerSelection);
+
+//         if (prevRes === 'You Win! Paper beats Rock' || prevRes === 'You Win! Rock beats Scissors' || prevRes === 'You Win! Scissors beats Paper') {
+//             resultHuman++;
+//         }
+//         else if (prevRes === 'You loose! Scissors beats paper' || prevRes === 'You loose! Paper beats Rock' || prevRes === 'You loose! Rock beats Paper') {
+//             resultMachine++;
+//         }
+//         else { }
+//             console.log(prevRes)
+//     }
+
+//     if (resultHuman > resultMachine) {
+//         return 'YOU WIN!!'
+//     }
+//     else if (resultMachine > resultHuman) {
+//         return 'YOU LOOSE!!'
+//     }
+//     else return 'IT\'S A TIE'
+// }
+// console.log(game());
