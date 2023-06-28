@@ -1,88 +1,148 @@
-const mano = ['rock', 'paper', 'scissors']
-function getComputerChoice() {
-    const choice = Math.floor(Math.random() * mano.length)
-    return mano[choice]
-    
+const aiChoice = ["rock", "paper", "scissors"];
+function getAiChoice() {
+  const choice = Math.floor(Math.random() * aiChoice.length);
+  return aiChoice[choice];
+}
+let humanResult = 0;
+let aiResult = 0;
+
+function playRound(humanChoice, aiChoice) {
+  if (humanChoice === "scissors" && aiChoice === "scissors") {
+    return "It's a Tie! You both picked Scissors";
+  }
+  if (humanChoice === "rock" && aiChoice === "rock") {
+    return "It's a Tie! You both picked Rock";
+  }
+  if (humanChoice === "paper" && aiChoice === "paper") {
+    return "It's a Tie! You both picked Paper";
+  }
+  if (humanChoice === "rock" && aiChoice === "scissors") {
+    humanResult++;
+    return "You Win! Rock beats Scissors";
+  }
+  if (humanChoice === "rock" && aiChoice === "paper") {
+    aiResult++;
+    return "You loose! Paper beats Rock";
+  }
+  if (humanChoice === "paper" && aiChoice === "rock") {
+    humanResult++;
+    return "You Win! Paper beats Rock";
+  }
+  if (humanChoice === "paper" && aiChoice === "scissors") {
+    aiResult++;
+    return "You loose! Scissors beats paper";
+  }
+  if (humanChoice === "scissors" && aiChoice === "paper") {
+    humanResult++;
+    return "You Win! Scissors beats Paper";
+  }
+  if (humanChoice === "scissors" && aiChoice === "rock") {
+    aiResult++;
+    return "You loose! Rock beats Scissors";
+  }
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-        return 'It\'s a Tie! You both picked Scissors';
-    }
-    else if (playerSelection === 'rock' && computerSelection === 'rock') {
-        return 'It\'s a Tie! You both picked Rock';
-    }
-    else if (playerSelection === 'paper' && computerSelection === 'paper') {
-        return 'It\'s a Tie! You both picked Paper';
-    }
-    else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 'You Win! Paper beats Rock';
-    }
-    else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return 'You Win! Rock beats Scissors';
-    }
-    else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 'You Win! Scissors beats Paper';
-    }
-    else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return 'You loose! Scissors beats paper';
-    }
-    else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return 'You loose! Paper beats Rock';
-    }
-    else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return 'You loose! Rock beats Scissors';
-    }
+results.textContent = `Let's Begin The Battle`;
+let initHumanRes = 0;
+let initAires = 0;
+humanCount.textContent = `Human ${initHumanRes}`;
+aiCount.textContent = `Ai ${initAires}`;
+
+function resetBattle() {
+  let humanCount = document.getElementById("humanCount");
+  humanCount.textContent = `Human 0`;
+  let aiCount = document.getElementById("aiCount");
+  aiCount.textContent = `Ai 0`;
+  results.textContent = `Let's Begin The Battle`;
 }
-function humanChoiceRock () {
-    console.log(playRound('rock', getComputerChoice()))
+
+let reset = document.getElementById("reset");
+reset.addEventListener("click", resetBattle);
+
+function humanChoiceRock() {
+  let resultText = playRound("rock", getAiChoice());
+  let results = document.getElementById("results");
+  results.textContent = resultText;
+  let humanCount = document.getElementById("humanCount");
+  humanCount.textContent = `Human ${humanResult}`;
+
+  if (resultText === "You loose! Paper beats Rock") {
+    let aiCount = document.getElementById("aiCount");
+    aiCount.textContent = `Ai ${aiResult}`;
+  }
+  if (resultText === "You Win! Rock beats Scissors") {
+    let aiCount = document.getElementById("aiCount");
+    aiCount.textContent = `Ai ${aiResult}`;
+  }
+
+  if (aiResult === 3) {
+    aiResult = 0;
+    humanResult = 0;
+    results.textContent = "YOU LOOSE THE WAR!";
+  }
+  if (humanResult === 3) {
+    aiResult = 0;
+    humanResult = 0;
+    results.textContent = "YOU WIN THE WAR!";
+  }
 }
-let rockBtn = document.getElementById('rockBtn');
-rockBtn.addEventListener('click', humanChoiceRock);
+let rockBtn = document.getElementById("rockBtn");
+rockBtn.addEventListener("click", humanChoiceRock);
 
-function humanChoicePaper () {
-    console.log(playRound('paper', getComputerChoice()))
+function humanChoicePaper() {
+  let resultText = playRound("paper", getAiChoice());
+  let results = document.getElementById("results");
+  results.textContent = resultText;
+  let humanCount = document.getElementById("humanCount");
+  humanCount.textContent = `Human ${humanResult}`;
+
+  if (resultText === "You Win! Paper beats Rock") {
+    let aiCount = document.getElementById("aiCount");
+    aiCount.textContent = `Ai ${aiResult}`;
+  }
+  if (resultText === "You loose! Scissors beats paper") {
+    let aiCount = document.getElementById("aiCount");
+    aiCount.textContent = `Ai ${aiResult}`;
+  }
+  if (aiResult === 3) {
+    aiResult = 0;
+    humanResult = 0;
+    results.textContent = "YOU LOOSE THE WAR!";
+  }
+  if (humanResult === 3) {
+    aiResult = 0;
+    humanResult = 0;
+    results.textContent = "YOU WIN THE WAR!";
+  }
 }
-let paprBtn = document.getElementById('paprBtn');
-paprBtn.addEventListener('click', humanChoicePaper);
+let paprBtn = document.getElementById("paprBtn");
+paprBtn.addEventListener("click", humanChoicePaper);
 
-function humanChoiceScissors () {
-    console.log(playRound('scissors', getComputerChoice()))
+function humanChoiceScissors() {
+  let resultText = playRound("scissors", getAiChoice());
+  let results = document.getElementById("results");
+  results.textContent = resultText;
+  let humanCount = document.getElementById("humanCount");
+  humanCount.textContent = `Human ${humanResult}`;
+
+  if (resultText === "You Win! Scissors beats Paper") {
+    let aiCount = document.getElementById("aiCount");
+    aiCount.textContent = `Ai ${aiResult}`;
+  }
+  if (resultText === "You loose! Rock beats Scissors") {
+    let aiCount = document.getElementById("aiCount");
+    aiCount.textContent = `Ai ${aiResult}`;
+  }
+  if (aiResult === 3) {
+    aiResult = 0;
+    humanResult = 0;
+    results.textContent = "YOU LOOSE THE WAR!";
+  }
+  if (humanResult === 3) {
+    aiResult = 0;
+    humanResult = 0;
+    results.textContent = "YOU WIN THE WAR!";
+  }
 }
-let scissBtn = document.getElementById('scissBtn');
-scissBtn.addEventListener('click', humanChoiceScissors);
-
-
-
-
-
-
-
-
-// function game() {    
-//     let resultHuman = 0;
-//     let resultMachine = 0;
-//     for (let i = 0; i < 5; i++) {
-//         const playerSelection = 'paper';
-//         const computerSelection = getComputerChoice();
-//         let prevRes = playRound(playerSelection, computerSelection);
-
-//         if (prevRes === 'You Win! Paper beats Rock' || prevRes === 'You Win! Rock beats Scissors' || prevRes === 'You Win! Scissors beats Paper') {
-//             resultHuman++;
-//         }
-//         else if (prevRes === 'You loose! Scissors beats paper' || prevRes === 'You loose! Paper beats Rock' || prevRes === 'You loose! Rock beats Paper') {
-//             resultMachine++;
-//         }
-//         else { }
-//             console.log(prevRes)
-//     }
-
-//     if (resultHuman > resultMachine) {
-//         return 'YOU WIN!!'
-//     }
-//     else if (resultMachine > resultHuman) {
-//         return 'YOU LOOSE!!'
-//     }
-//     else return 'IT\'S A TIE'
-// }
-// console.log(game());
+let scissBtn = document.getElementById("scissBtn");
+scissBtn.addEventListener("click", humanChoiceScissors);
