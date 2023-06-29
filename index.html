@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Piedra Papel o Tijera</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piedra Papel o Tijera</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <div id="results"></div>
+  <div id="finalResults"></div>
+  <div class="counter">
+    <div class="humanCount">
+      <div id="humanCount"></div>
+      <div>Human</div>
+    </div>
+    <div class="aiCount">
+      <div id="aiCount"></div>
+      <div>Ai</div>
+    </div>
+
+  </div>
+  <div>
     <button id="rockBtn">Rock</button>
     <button id="paprBtn">Paper</button>
     <button id="scissBtn">Scissors</button>
-    <div id="results"></div>
-    <div id="humanCount"></div>
-    <div id="aiCount"></div>
-    <button id="reset">Reset</button>
-    <script src="code.js"></script>
-  </body>
+  </div>
+  <div id="reset">Reset</div>
+  <script src="code.js"></script>
+</body>
+
 </html>
