@@ -1,4 +1,5 @@
 body {
+    font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -6,7 +7,11 @@ body {
     align-items: center;
 }
 
-
+#engine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .counter {
     display: flex;
@@ -25,8 +30,8 @@ body {
 
 #reset {
     cursor: grab;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: red;
     border: solid 1px black;
@@ -34,6 +39,8 @@ body {
     align-items: center;
     justify-content: center;
     margin: 20px;
+    font-weight: 600;
+    font-size: 15px;
 
 }
 
