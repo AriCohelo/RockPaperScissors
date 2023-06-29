@@ -13,6 +13,7 @@
 }
 
 #reset {
+    cursor: grab;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -27,6 +28,11 @@
 #rockBtn,
 #paprBtn,
 #scissBtn {
+    cursor: grab;
     height: 60px;
     width: 60px;
+}
+
+#finalResults {
+    height: 24px;
 }

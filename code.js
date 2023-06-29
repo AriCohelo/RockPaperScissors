@@ -43,12 +43,21 @@ function playRound(humanChoice, aiChoice) {
 function gameOver() {
   if (humanScore === 3) {
     finalResults.textContent = 'YOU WIN!';
+    rockBtn.disabled = true;
+    paprBtn.disabled = true;
+    scissBtn.disabled = true;
+    results.textContent = '';
+    results.style.height = '20px'
+
   }
   if (aiScore === 3) {
     finalResults.textContent = 'YOU LOOSE';
     rockBtn.disabled = true;
     paprBtn.disabled = true;
     scissBtn.disabled = true;
+    results.textContent = '';
+    results.style.height = '20px'
+
   }
 }
 function toReset() {
@@ -59,7 +68,7 @@ function toReset() {
   humanCount.textContent = humanScore;
   aiCount.textContent = aiScore;
   results.textContent = 'Let\'s Begin The Battle';
-  finalResults.textContent = ' ';
+  finalResults.textContent = ''
 }
 
 let aiScore = 0;
@@ -71,7 +80,6 @@ aiCount.textContent = aiScore;
 let results = document.getElementById('results');
 results.textContent = 'Let\'s Begin The Battle';
 let finalResults = document.getElementById('finalResults');
-finalResults.textContent = 'A';
 let reset = document.getElementById('reset');
 reset.addEventListener('click', toReset);
 
