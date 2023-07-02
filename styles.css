@@ -1,4 +1,5 @@
 body {
+    background-image: radial-gradient(circle at center center, rgb(10, 133, 202), rgb(23, 106, 192), rgb(35, 79, 183), rgb(48, 51, 173), rgb(60, 24, 163));
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     display: flex;
@@ -15,12 +16,13 @@ body {
 
 .counter {
     display: flex;
-    margin: 30px;
+    margin: 30px 30px 15px 30px;
 
 }
 
 .humanCount,
 .aiCount {
+    font-size: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,25 +36,41 @@ body {
     height: 50px;
     border-radius: 50%;
     background-color: red;
-    border: solid 1px black;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px;
     font-weight: 600;
     font-size: 15px;
+    padding: 5px;
 
+}
+
+#choiceBtns {
+    display: flex;
 }
 
 #rockBtn,
 #paprBtn,
 #scissBtn {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    margin: 10px;
     cursor: grab;
     height: 60px;
     width: 60px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-weight: 900;
+
 }
 
 #finalResults {
     height: 24px;
     font-weight: 900;
+
 }

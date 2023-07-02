@@ -63,7 +63,8 @@ function gameOver() {
 function toReset() {
   rockBtn.disabled = false;
   paprBtn.disabled = false;
-  scissBtn.disabled = false; aiScore = 0;
+  scissBtn.disabled = false;
+  aiScore = 0;
   humanScore = 0;
   humanCount.textContent = humanScore;
   aiCount.textContent = aiScore;
@@ -116,108 +117,3 @@ scissBtn.addEventListener('click', humanChoiceScissors)
 
 
 
-
-// results.textContent = `Let's Begin The Battle`;
-// let initHumanRes = 0;
-// let initAires = 0;
-// humanCount.textContent = `Human ${initHumanRes}`;
-// aiCount.textContent = `Ai ${initAires}`;
-
-// function resetBattle() {
-//   let humanCount = document.getElementById("humanCount");
-//   humanCount.textContent = `Human 0`;
-//   let aiCount = document.getElementById("aiCount");
-//   aiCount.textContent = `Ai 0`;
-//   results.textContent = `Let's Begin The Battle`;
-// }
-
-// let reset = document.getElementById("reset");
-// reset.addEventListener("click", resetBattle);
-
-// function humanChoiceRock() {
-//   let resultText = playRound("rock", getAiChoice());
-//   let results = document.getElementById("results");
-//   results.textContent = resultText;
-//   let humanCount = document.getElementById("humanCount");
-//   humanCount.textContent = `Human ${humanResult}`;
-
-//   if (resultText === "You loose! Paper beats Rock") {
-//     let aiCount = document.getElementById("aiCount");
-//     aiCount.textContent = `Ai ${aiResult}`;
-//   }
-//   if (resultText === "You Win! Rock beats Scissors") {
-//     let aiCount = document.getElementById("aiCount");
-//     aiCount.textContent = `Ai ${aiResult}`;
-//   }
-
-//   if (aiResult === 3) {
-//     aiResult = 0;
-//     humanResult = 0;
-//     results.textContent = "YOU LOOSE THE WAR!";
-//   }
-//   if (humanResult === 3) {
-//     aiResult = 0;
-//     humanResult = 0;
-//     results.textContent = "YOU WIN THE WAR!";
-//   }
-// }
-// let rockBtn = document.getElementById("rockBtn");
-// rockBtn.addEventListener("click", humanChoiceRock);
-
-// function humanChoicePaper() {
-//   let resultText = playRound("paper", getAiChoice());
-//   let results = document.getElementById("results");
-//   results.textContent = resultText;
-//   let humanCount = document.getElementById("humanCount");
-//   humanCount.textContent = `Human ${humanResult}`;
-
-//   if (resultText === "You Win! Paper beats Rock") {
-//     let aiCount = document.getElementById("aiCount");
-//     aiCount.textContent = `Ai ${aiResult}`;
-//   }
-//   if (resultText === "You loose! Scissors beats paper") {
-//     let aiCount = document.getElementById("aiCount");
-//     aiCount.textContent = `Ai ${aiResult}`;
-//   }
-//   if (aiResult === 3) {
-//     aiResult = 0;
-//     humanResult = 0;
-//     results.textContent = "YOU LOOSE THE WAR!";
-//   }
-//   if (humanResult === 3) {
-//     aiResult = 0;
-//     humanResult = 0;
-//     results.textContent = "YOU WIN THE WAR!";
-//   }
-// }
-// let paprBtn = document.getElementById("paprBtn");
-// paprBtn.addEventListener("click", humanChoicePaper);
-
-// function humanChoiceScissors() {
-//   let resultText = playRound("scissors", getAiChoice());
-//   let results = document.getElementById("results");
-//   results.textContent = resultText;
-//   let humanCount = document.getElementById("humanCount");
-//   humanCount.textContent = `Human ${humanResult}`;
-
-//   if (resultText === "You Win! Scissors beats Paper") {
-//     let aiCount = document.getElementById("aiCount");
-//     aiCount.textContent = `Ai ${aiResult}`;
-//   }
-//   if (resultText === "You loose! Rock beats Scissors") {
-//     let aiCount = document.getElementById("aiCount");
-//     aiCount.textContent = `Ai ${aiResult}`;
-//   }
-//   if (aiResult === 3) {
-//     aiResult = 0;
-//     humanResult = 0;
-//     results.textContent = "YOU LOOSE THE WAR!";
-//   }
-//   if (humanResult === 3) {
-//     aiResult = 0;
-//     humanResult = 0;
-//     results.textContent = "YOU WIN THE WAR!";
-//   }
-// }
-// let scissBtn = document.getElementById("scissBtn");
-// scissBtn.addEventListener("click", humanChoiceScissors);
